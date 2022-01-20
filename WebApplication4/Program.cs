@@ -81,8 +81,7 @@ namespace WebApplication4
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().
-                    UseKestrel(o => { o.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(10); });
+                    webBuilder.UseStartup<Startup>();
                 });
 
         private async static Task Connection_Closed(Exception arg)

@@ -37,7 +37,11 @@ namespace WebApplication4
                     .SetIsOriginAllowed((host) => true));
             });
             services.AddControllers();
-            services.AddSignalR();
+            services.AddSignalR(hubOptions =>
+            {
+                hubOptions.EnableDetailedErrors = true;
+                hubOptions.KeepAliveInterval = TimeSpan.FromMinutes(60);
+            });
             //services.AddCors(options =>
             //{
             //    options.AddPolicy(name: MyAllowSpecificOrigins,
